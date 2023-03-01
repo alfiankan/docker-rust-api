@@ -1,0 +1,16 @@
+version: "1"
+
+instances:
+  popular_songs:
+    trigger:
+      manual: # using json api dispatcher
+    pipelines:
+      - name: reduce to top 10
+        type: python
+        intermediate_format: file
+        file: /Users/alfiankan/development/paralon/example/scripts/top_ten.py
+
+      - name: to uppercase
+        type: python
+        intermediate_format: file
+        file: /Users/alfiankan/development/paralon/example/scripts/uppercase.py
